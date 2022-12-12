@@ -41,12 +41,11 @@
 /* ----- MAIN ----- */
 main {
     height: calc(100vh - 70px);
-    background-color: salmon;
+    overflow: hidden;
 }
 
 /* ASIDE */
 aside {
-    height: 100vh;
     background-color: var(--my-dark-bg);
 }
 
@@ -56,9 +55,7 @@ aside .row {
 
 /* MAIN SECTION */
 #main-section {
-    background-color: aqua;
     overflow-y: auto;
-    height: 100vh;
 }
 
 /* MAIN SECTION HEADER */
@@ -69,12 +66,13 @@ aside .row {
 }
 
 /* MAIN CONTENT */
-#main-section #main-content [class*="col"] {
-    background-color: blueviolet;
-    border: 1px dashed white;
+
+#main-section #main-content table span.rounded-pill {
+    background-color: #f16451;
 }
 
-#main-section #main-content {
-    background-color: sandybrown;
-    height: 70px;
+#main-section #main-content table td:not(:first-child),
+#main-section #main-content table th:not(:first-child)
+ {
+    text-align: center;
 }
