@@ -50,6 +50,10 @@ aside {
     background-color: var(--my-dark-bg);
 }
 
+aside .row {
+    margin-right: 0;
+}
+
 /* MAIN SECTION */
 #main-section {
     background-color: aqua;
