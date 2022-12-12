@@ -6,8 +6,38 @@
 /* ----- HEADER PRINCIPALE----- */
 #page-header {
     height: 70px;
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
 }
+
+#page-header #mobile-logo {
+    display: none;
+}
+#page-header img {
+    height:35px;
+}
+
+#page-header .search-box {
+    background-color: var(--bs-gray-300);
+}
+
+#page-header input {
+    border: none;
+    background-color: transparent;
+}
+
+#page-header input:focus-visible {
+    outline:none;
+}
+
+#page-header input::placeholder {
+    color: var(--bs-gray-600);
+}
+
+/* 
+#page-header [class*="col"]{
+    background-color: blue;
+    border: 1px dashed white;
+} */
 
 /* ----- MAIN ----- */
 main {
