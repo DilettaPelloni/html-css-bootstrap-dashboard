@@ -1,12 +1,17 @@
 /* COLORI */
 :root {
     --my-dark-bg: #0d2337;
+    --my-gold: #fe8d00;
+}
+
+/* REGOLE GENERALI */
+.gold-icon {
+    color: var(--my-gold);
 }
 
 /* ----- HEADER PRINCIPALE----- */
 #page-header {
     height: 70px;
-    /* background-color: goldenrod; */
 }
 
 #page-header #mobile-logo {
@@ -32,12 +37,6 @@
 #page-header input::placeholder {
     color: var(--bs-gray-600);
 }
-
-/* 
-#page-header [class*="col"]{
-    background-color: blue;
-    border: 1px dashed white;
-} */
 
 /* ----- MAIN ----- */
 main {
