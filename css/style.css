@@ -62,14 +62,10 @@ aside .row {
 }
 
 /* MAIN SECTION HEADER */
-#main-section header{
-    background-color: sandybrown;
-    height: 70px;
-}
-
-#main-section header [class*="col"] {
-    background-color: blue;
-    border: 1px dashed white;
+#main-section header .badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 /* MAIN CONTENT */
