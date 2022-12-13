@@ -5,8 +5,16 @@
 }
 
 /* REGOLE GENERALI */
+body {
+    min-width: 368px;
+}
+
 .gold-icon {
     color: var(--my-gold);
+}
+
+img {
+    width: 100%;
 }
 
 /* ----- HEADER PRINCIPALE----- */
@@ -17,8 +25,13 @@
 #page-header #mobile-logo {
     display: none;
 }
-#page-header img {
+
+#page-header #logo {
     height:35px;
+}
+
+#page-header #mobile-logo {
+    height:55px;
 }
 
 #page-header .search-box {
@@ -40,17 +53,18 @@
 
 /* ----- MAIN ----- */
 main {
+    width: 100%;
     height: calc(100vh - 70px);
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 /* ASIDE */
 aside {
     background-color: var(--my-dark-bg);
-}
-
-aside .row {
-    margin-right: 0;
+    background-image: url('../img/sidebar-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
 }
 
 /* MAIN SECTION */

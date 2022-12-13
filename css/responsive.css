@@ -2,7 +2,10 @@
     #page-header #mobile-logo {
         display: inline-block;
     }
+
     #page-header #logo {
         display: none;
     }
 }
+
+
