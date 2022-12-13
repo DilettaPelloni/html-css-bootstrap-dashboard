@@ -80,7 +80,13 @@ aside li:hover {
 }
 
 #main-section header .offcanvas {
-    width: 40%;
+    width: 100%;
+}
+
+@media screen and (min-width:992px) {
+    #main-section header .offcanvas {
+        width: 40%;
+    }
 }
 
 /* MAIN CONTENT */
