@@ -7,7 +7,7 @@
 /* REGOLE GENERALI */
 body {
     min-width: 368px;
-}
+}/* per non rompere il layout se viene ristretto troppo */
 
 .gold-icon {
     color: var(--my-gold);
@@ -22,10 +22,6 @@ img {
     height: 70px;
 }
 
-#page-header #mobile-logo {
-    display: none;
-}
-
 #page-header #logo {
     height:35px;
 }
@@ -34,17 +30,17 @@ img {
     height:55px;
 }
 
-#page-header .search-box {
-    background-color: var(--bs-gray-300);
-}
-
-#page-header input {
+#page-header input[type="search"],
+#page-header span[class="input-group-text"] {
+    background-color: var(--bs-gray-200);
     border: none;
-    background-color: transparent;
 }
 
 #page-header input:focus-visible {
     outline:none;
+}
+#page-header input:focus {
+    box-shadow:none;
 }
 
 #page-header input::placeholder {
@@ -67,6 +63,10 @@ aside {
     background-size:cover;
 }
 
+aside li:hover {
+    background-color: var(--bs-gray-600);
+}
+
 /* MAIN SECTION */
 #main-section {
     overflow-y: auto;
@@ -79,10 +79,14 @@ aside {
     font-size: 0.9rem;
 }
 
+#main-section header .offcanvas {
+    width: 40%;
+}
+
 /* MAIN CONTENT */
 
-#main-section #main-content table span.rounded-pill {
-    background-color: #f16451;
+#main-section #main-content table img {
+    width: 25px;
 }
 
 #main-section #main-content table td:not(:first-child),
