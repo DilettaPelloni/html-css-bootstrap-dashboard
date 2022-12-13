@@ -13,7 +13,6 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
 
         <title>Bootstrap dashboard</title>
     </head>
@@ -24,18 +23,18 @@
             <div class="container-fluid h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-auto">
-                        <img id="logo" src="img/logo.svg" alt="logo">
-                        <img id="mobile-logo" src="img/mobile-logo.png" alt="mobile-logo">
+                        <img id="logo" class="d-none d-lg-inline-block" src="img/logo.svg" alt="logo">
+                        <img id="mobile-logo" class="d-lg-none" src="img/mobile-logo.png" alt="mobile-logo">
                     </div><!-- CHIUSURA COLONNA LOGO -->
                     <div class="col">
                         <form>
-                            <div class="search-box rounded-3 px-2 d-flex">
-                                <label class="py-2 me-2">
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">
                                     <i class="fa-solid fa-magnifying-glass"></i>
-                                </label>
-                                <input class="py-2 flex-grow-1" type="search" placeholder="Prova a cercare: Lezioni di Laravel">
+                                </span>
+                                <input type="search" class="form-control" aria-label="search" aria-describedby="basic-addon1" placeholder="Prova a cercare: Lezioni di Laravel">
                             </div>
-                          </form>
+                        </form>
                     </div><!-- CHIUSURA COLONNA SEARCH -->
                     <div class="col-auto">
                         <nav class="navbar py-0 navbar-expand-lg">
@@ -59,10 +58,15 @@
                                 </ul>
                             </div><!-- CHIUSURA NAV COLLAPSE -->
                             <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link gold-icon" href="#">
+                                <li class="nav-item dropdown">
+                                    <button class="btn gold-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell"></i>
-                                    </a>
+                                    </button >
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Profilo</a></li>
+                                        <li><a class="dropdown-item" href="#">Fatturazione</a></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                      </ul>
                                 </li>
                             </ul>
                         </nav>
@@ -80,19 +84,19 @@
                         <!-- ASIDE TOP -->
                         <div class="mt-3">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <li class="nav-item px-2">
                                     <a class="nav-link" href="#">
                                         <i class="fa-solid fa-house pe-lg-2"></i>
                                         <span class="d-none d-lg-inline">Home</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item px-2">
                                     <a class="nav-link" href="#">
                                         <i class="fa-solid fa-chart-simple pe-lg-2"></i>
                                         <span class="d-none d-lg-inline">Stats</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item px-2">
                                     <a class="nav-link" href="#">
                                         <i class="fa-solid fa-signal pe-lg-2"></i>
                                         <span class="d-none d-lg-inline">Signals</span>
@@ -104,7 +108,7 @@
                         <!-- ASIDE BOTTOM -->
                         <div class="mb-3">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <li class="nav-item px-2">
                                     <a class="nav-link" href="#">
                                         <i class="fa-solid fa-gear pe-lg-2"></i>
                                         <span class="d-none d-lg-inline">Admin</span>
@@ -171,8 +175,84 @@
 
                             <div class="col-12 mb-4 order-first col-md-4 mb-md-0 order-md-last col-lg-2 ">
                                 <span class="me-3">Nuovo studente</span>
-                                <a href="#" class="btn btn-outline-light">+</a>
+                                <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasStudent" aria-controls="offcanvasStudent">
+                                    +
+                                </button>
                             </div>
+
+                            <!-- OFFCANVAS -->
+                            <div class="offcanvas offcanvas-end text-dark" tabindex="-1" data-bs-backdrop="static" id="offcanvasStudent" aria-labelledby="offcanvasStudentLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasStudentLabel">Inserisci un nuovo studente</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div>
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-6 mb-3">
+                                                    <label for="student-name" class="form-label">Nome</label>
+                                                    <input type="text" class="form-control" id="student-name">
+                                                </div>
+                                                <div class="col-lg-6 mb-3">
+                                                    <label for="student-surname" class="form-label">Cognome</label>
+                                                    <input type="text" class="form-control" id="student-surname">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label for="student-email" class="form-label">Email</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                                        <input type="email" class="form-control" id="student-email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label for="student-password" class="form-label">Password</label>
+                                                    <input type="password" class="form-control" id="student-password">
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <label for="student-address" class="form-label">Indirizzo</label>
+                                                    <input type="text" class="form-control" id="student-address">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label for="student-city" class="form-label">Città</label>
+                                                    <input type="text" class="form-control" id="student-city">
+                                                </div>
+                                                <div class="col-3 mb-3">
+                                                    <label for="student-state" class="form-label">Stato</label>
+                                                    <select class="form-select" id="student-state">
+                                                        <option selected disabled>Scegli...</option>
+                                                        <option value="italy">Italia</option>
+                                                        <option value="uk">Inghilterra</option>
+                                                        <option value="france">Francia</option>
+                                                      </select>
+                                                </div>
+                                                <div class="col-3 mb-3">
+                                                    <label for="student-postal-code" class="form-label">CAP</label>
+                                                    <input type="text" class="form-control" id="student-postal-code">
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <label for="student-photo" class="form-label">Foto</label>
+                                                    <input class="form-control" type="file" id="student-photo">
+                                                </div>
+                                                <div class="col-12 mb-3 mt-2">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="mandatory-check">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Seleziona per proseguire
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <button type="submit" class="btn btn btn-primary">Salva</button>
+                                                    <button type="reset" value="Reset" class="btn btn-warning text-dark">Svuota</button>
+                                                </div>
+
+                                              </div>
+                                        </form>
+                                  </div>
+                                </div><!-- CHIUSURA OFFCANVAS BODY -->
+                            </div><!-- CHIUSURA OFFCANVAS -->
+
                         </header><!-- CHIUSURA MAIN CONTENT HEADER -->
 
                         <section id="main-content" class="row">
@@ -182,7 +262,7 @@
                                       <h2 class="fw-normal">Prossime classi</h2>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table">
+                                        <table class="table table-hover">
                                             <thead>
                                             <tr>
                                                 <th scope="col">Nome</th>
@@ -197,9 +277,7 @@
                                             <tbody>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 75
                                                     </span>
@@ -230,9 +308,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 76
                                                     </span>
@@ -263,9 +339,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 77
                                                     </span>
@@ -296,9 +370,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 78
                                                     </span>
@@ -329,9 +401,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 79
                                                     </span>
@@ -362,9 +432,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 80
                                                     </span>
@@ -395,9 +463,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 81
                                                     </span>
@@ -428,9 +494,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <span class="badge rounded-pill fs-6 p-1 me-2">
-                                                        <i class="fa-solid fa-code"></i>
-                                                    </span>
+                                                    <img class="me-1" src="img/class-avatar.png" alt="class avatar">
                                                     <span class="small">
                                                         Classe 82
                                                     </span>
@@ -478,7 +542,7 @@
                                               </h2>
                                               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
                                                 <div class="accordion-body">
-                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, perspiciatis.
+                                                  Clicca sul + in alto nella sezione blu.*
                                                 </div>
                                               </div>
                                             </div>
@@ -488,21 +552,21 @@
                                                   Come posso accedere alle informazioni del mio account?
                                                 </button>
                                               </h2>
-                                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
                                                 <div class="accordion-body">
-                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, cupiditate?
+                                                  Clicca sull'icona della campanella
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="accordion-item">
                                               <h2 class="accordion-header" id="headingThree">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                  Posso usare questa dashboard da mobile?
+                                                    Posso usare questa dashboard da mobile?
                                                 </button>
                                               </h2>
-                                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
                                                 <div class="accordion-body">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, cupiditate?
+                                                    Certo, perchè no?
                                                 </div>
                                               </div>
                                             </div>
